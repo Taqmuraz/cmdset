@@ -1,0 +1,3 @@
+repo=$1
+token=$(secret-tool lookup username lulook)
+git push https://Taqmuraz:$token@github.com/nine-datum/$repo.git
