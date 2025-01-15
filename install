@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Проверяем, передана ли папка в качестве аргумента
+if [ -z "$1" ]; then
+  echo "Использование: $0 путь_к_папке"
+  exit 1
+fi
+
+# Папка, из которой копируем файлы
+SOURCE_DIR="$1"
+
+# Целевая папка
+TARGET_DIR="$HOME/bin"
+
+# Проверяем, существует ли папка ~/bin, если нет — создаем
+if [ ! -d "$TARGET_DIR" ]; then
+  mkdir -p "$TARGET_DIR"
+  echo "Создана папка $TARGET_DIR"
+fi
+
+# Копируем файлы из SOURCE_DIR в TARGET_DIR и делаем их исполняемыми
+for file in "$SOURCE_DIR"/*; do
+  if [ -f "$file" ]; then
+    cp "$file" "$TARGET_DIR"
+    chmod +x "$TARGET_DIR/$(basename "$file")"
+    echo "Файл $(basename "$file") добавлен в $TARGET_DIR и сделан исполняемым"
+  fi
+done
+
+# Убеждаемся, что папка ~/bin добавлена в PATH
+if [[ ":$PATH:" != *":$HOME/bin:"* ]]; then
+  echo "export PATH=\$PATH:\$HOME/bin" >> "$HOME/.bashrc"
+  echo "Папка $TARGET_DIR добавлена в PATH. Перезапустите терминал или выполните 'source ~/.bashrc'"
+else
+  echo "Папка $TARGET_DIR уже в PATH"
+fi
