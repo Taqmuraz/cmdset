@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# Проверяем, передана ли папка в качестве аргумента
-if [ -z "$1" ]; then
-  echo "Использование: $0 путь_к_папке"
-  exit 1
-fi
-
 # Папка, из которой копируем файлы
-SOURCE_DIR="$1"
+SOURCE_DIR="bin"
 
 # Целевая папка
 TARGET_DIR="$HOME/bin"
@@ -34,3 +28,5 @@ if [[ ":$PATH:" != *":$HOME/bin:"* ]]; then
 else
   echo "Папка $TARGET_DIR уже в PATH"
 fi
+
+source ~/.bashrc
