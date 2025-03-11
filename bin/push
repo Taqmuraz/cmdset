@@ -1,3 +1,4 @@
 repo=$1
+shift
 token=$(secret-tool lookup username lulook)
-git push https://Taqmuraz:$token@github.com/Taqmuraz/$repo.git
+git push https://Taqmuraz:$token@github.com/Taqmuraz/$repo.git $@

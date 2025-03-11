@@ -1,0 +1,4 @@
+repo=$1
+shift
+token=$(secret-tool lookup username lulook-cb)
+git push https://lulook:$token@codeberg.org/lulook/$repo.git $@
