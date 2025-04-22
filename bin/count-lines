@@ -1,0 +1,10 @@
+#!/bin/sh
+
+root=$1
+ext=$2
+files=$(find $root -name "*.$ext" -type f)
+o=$(for f in $files
+do
+  grep -c . $f
+done)
+echo $(plus $o)
