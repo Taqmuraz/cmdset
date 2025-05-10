@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+files=$(ls)
+cmd=$@
+for f in $files
+do
+  echo "applying \"$cmd\" for $f ...";
+  (cd $f;
+    if [ -d ".git" ]; then
+      $cmd
+    fi
+  )
+done
