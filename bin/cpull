@@ -1,4 +1,3 @@
 repo=${PWD##*/}
-shift
 token=$(secret-tool lookup username lulook-cb)
 git pull https://lulook:$token@codeberg.org/lulook/$repo.git $@

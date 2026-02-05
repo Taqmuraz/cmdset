@@ -1,0 +1,5 @@
+start=$1
+length=$2
+input=$3
+output=$4
+ffmpeg -ss $start -i "$input" -t $length -vcodec copy -acodec copy "$output"

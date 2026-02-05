@@ -1,1 +1,4 @@
-git pull origin master
+repo=${PWD##*/}
+shift
+token=$(secret-tool lookup username lulook)
+git pull https://lulook:$token@github.com/taqmuraz/$repo.git $@

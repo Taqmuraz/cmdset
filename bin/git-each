@@ -3,7 +3,7 @@ files=$(ls)
 cmd=$@
 for f in $files
 do
-  echo "applying \"$cmd\" for $f ...";
+  echo "$(tput setaf 2) applying \"$cmd\" for $f ...$(tput sgr0)";
   (cd $f;
     if [ -d ".git" ]; then
       $cmd
