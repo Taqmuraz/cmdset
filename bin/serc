@@ -3,7 +3,7 @@ file=$1
 entry=$2
 found=$(lynx -listonly -nonumbers -dump "$file" | grep "$entry" | head -n 1)
 if [[ -n $found ]]; then
-  w3m -T text/html "${found#*//}"
+  w3m -T text/html "${found#*//}" -o anchor_color=yellow -o confirm_qq=false
 else
   echo "no entry '$entry' found at '$file'"
 fi
