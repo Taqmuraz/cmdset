@@ -1,0 +1,2 @@
+#!/bin/bash
+serc ~/Documents/javadoc/docs/api/allclasses-frame.html $1
