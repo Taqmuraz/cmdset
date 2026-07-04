@@ -1,3 +1,8 @@
 #!/bin/bash
 cd ~/projects/cl-spec-copy
-serc HyperSpec/Front/X_AllSym.htm $1
+arg=$1
+if [[ -n $arg ]]; then
+  serc HyperSpec/Front/X_AllSym.htm $1
+else
+  ww HyperSpec/Front/X_AllSym.htm
+fi
