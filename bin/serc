@@ -1,0 +1,9 @@
+#!/bin/bash
+file=$1
+entry=$2
+found=$(lynx -listonly -nonumbers -dump "$file" | grep "$entry" | head -n 1)
+if [[ -n $found ]]; then
+  w3m -T text/html "${found#*//}"
+else
+  echo "no entry '$entry' found at '$file'"
+fi
