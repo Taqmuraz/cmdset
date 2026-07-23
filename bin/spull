@@ -1,0 +1,2 @@
+#!/bin/bash
+git pull git@git.sr.ht:~lulook/$1

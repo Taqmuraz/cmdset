@@ -1,0 +1,2 @@
+#!/bin/bash
+git push git@git.sr.ht:~lulook/$1
