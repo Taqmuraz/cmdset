@@ -1,5 +1,6 @@
 #!/bin/bash
 
 repo=$1
+shift
 token=$(secret-tool lookup username pub)
 git push https://lulook:$token@git.pub.solar/lulook/$repo.git $@

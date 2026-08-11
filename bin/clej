@@ -1,0 +1,3 @@
+#!/bin/bash
+path=~/projects/clej
+$path/run-at $path $@
